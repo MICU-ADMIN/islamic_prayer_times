@@ -1,12 +1,13 @@
 ````markdown
 # islamic_prayer_times NPM
 
-The Sacred Texts NPM package simplifies
-access to Hadiths and Quranic verses for
-developers. This package builds upon the
-Hadith API repository to provide an
+The islamic prayer times NPM package
+simplifies access to Islamic prayer
+times data for developers. This package
+extends the functionality of the Prayer
+Times API repository to provide an
 easy-to-use interface for retrieving
-sacred texts.
+prayer times information.
 
 ## Installation
 
@@ -14,144 +15,180 @@ You can install the Sacred Texts NPM
 package via npm:
 
 ```bash
-npm i islamic_prayer_times
+npm i @mosqueicu/islamic_prayer_times
 ```
 ````
 
-## Usage
+## importing the package
 
 Import the package in your code:
 
 ```javascript
-const sacredTexts = require('islamic_prayer_times');
+const islamic_prayer_times = require('@mosqueicu/islamic_prayer_times');
 ```
 
 ### Functions
 
-#### `listAvailableEditions(options)`
+# `getPrayerTimes` Function Documentation
 
-This function retrieves a list of
-available Hadith editions.
+## Description
 
--  `options.language` (optional): Filter
-   editions by language.
--  `options.limit` (optional): Limit the
-   number of editions returned.
+The `getPrayerTimes` function is a
+JavaScript function for fetching daily
+prayer times based on various parameters
+such as date, location coordinates,
+calculation method, and other optional
+settings. It utilizes the Aladhan API to
+retrieve accurate prayer times.
 
-Returns: An array of available Hadith
-editions.
+## Usage
 
-#### `getMinifiedEditions(options)`
+To use this function, you need to import
+it into your JavaScript/TypeScript
+project. Here's how you can import it:
 
-This function retrieves a list of
-minified Hadith editions.
+```javascript
+import { getPrayerTimes } from '@mosqueicu/islamic_prayer_times';
+```
 
--  `options.language` (optional): Filter
-   editions by language.
--  `options.limit` (optional): Limit the
-   number of editions returned.
+### Function Signature
 
-Returns: An array of minified Hadith
-editions.
+```javascript
+async function getPrayerTimes(options): Promise<any>
+```
 
-#### `getHadithByEdition(options)`
+### Parameters
 
-This function retrieves Hadiths from a
-specific edition.
+-  `options` (required): An object of
+   type `PrayerTimeOptions` containing
+   the following properties:
+   -  `date` (string, required): The
+      date for which you want to fetch
+      prayer times in the format
+      'DD-MM-YYYY'.
+   -  `latitude` (number, required): The
+      latitude of the location for which
+      you want to fetch prayer times.
+   -  `longitude` (number, required):
+      The longitude of the location for
+      which you want to fetch prayer
+      times.
+   -  `method` (number, optional): The
+      calculation method for prayer
+      times. Defaults to `null`.
+   -  `shafaq` (number, optional): The
+      shafaq method for prayer times.
+      Defaults to `null`.
+   -  `tune` (number, optional): The
+      tune method for prayer times.
+      Defaults to `null`.
+   -  `school` (number, optional): The
+      school of jurisprudence for prayer
+      times. Defaults to `null`.
+   -  `midnightMode` (number, optional):
+      The midnight mode for prayer
+      times. Defaults to `null`.
+   -  `timezonestring` (string,
+      optional): The time zone string
+      for the location. Defaults to
+      `null`.
+   -  `latitudeAdjustmentMethod`
+      (string, optional): The latitude
+      adjustment method for prayer
+      times. Defaults to `null`.
+   -  `adjustment` (number, optional):
+      The adjustment for prayer times.
+      Defaults to `null`.
+   -  `iso8601` (boolean, optional):
+      Whether to return prayer times in
+      ISO8601 format. Defaults to
+      `null`.
 
--  `options.editionName`: The name of
-   the edition.
--  `options.language` (optional): Filter
-   Hadiths by language.
--  `options.limit` (optional): Limit the
-   number of Hadiths returned.
+### Returns
 
-Returns: An array of Hadiths from the
-specified edition.
+-  A Promise that resolves to an object
+   containing the prayer times data or
+   rejects with an error if the request
+   fails.
 
-#### `getSpecificHadith(options)`
+## Example
 
-This function retrieves a specific
-Hadith from a given edition.
+Here's an example of how to use the
+`getPrayerTimes` function:
 
--  `options.editionName`: The name of
-   the edition.
--  `options.HadithNo`: The number of the
-   specific Hadith.
--  `options.language` (optional): Filter
-   Hadiths by language.
--  `options.limit` (optional): Limit the
-   number of Hadiths returned.
+```javascript
+const options: PrayerTimeOptions = {
+	date: '17-07-2007',
+	latitude: 51.508515,
+	longitude: -0.1254872,
+	method: 2, // Calculation method (optional)
+};
 
-Returns: An array containing the
-specific Hadith.
+getPrayerTimes(options)
+	.then((data) => {
+		console.log(data); // Print the retrieved prayer times data
+	})
+	.catch((error) => {
+		console.error(error); // Handle any errors that occur during the request
+	});
+```
 
-#### `getMinifiedSpecificHadith(options)`
+In this example, you specify the date
+and location coordinates in the
+`options` object and, if needed,
+additional parameters for calculation
+methods. The function then makes an API
+request to fetch the daily prayer times
+and returns the data.
 
-This function retrieves a minified
-version of a specific Hadith from a
-given edition.
+## Error Handling
 
--  `options.editionName`: The name of
-   the edition.
--  `options.HadithNo`: The number of the
-   specific Hadith.
--  `options.language` (optional): Filter
-   Hadiths by language.
--  `options.limit` (optional): Limit the
-   number of Hadiths returned.
+The function handles errors by rejecting
+the Promise if there is a failure in
+fetching the data. You can catch these
+errors and handle them as needed.
 
-Returns: An array containing the
-minified version of the specific Hadith.
+### Error Object
 
-#### `getSectionByNumber(options)`
+The error object thrown by the function
+will include an error message indicating
+the reason for the failure.
 
-This function retrieves a section of
-Hadiths from a specific edition based on
-section number.
+```javascript
+Error: Failed to fetch prayer times: [error message]
+```
 
--  `options.editionName`: The name of
-   the edition.
--  `options.sectionNo`: The number of
-   the section.
--  `options.language` (optional): Filter
-   Hadiths by language.
--  `options.limit` (optional): Limit the
-   number of Hadiths returned.
+## API Endpoint
 
-Returns: An array of Hadiths from the
-specified section.
+The function uses the Aladhan API to
+retrieve prayer times data. The API
+endpoint is constructed based on the
+provided date.
 
-#### `getHadithBookDetails(options)`
+-  API Endpoint:
+   `http://api.aladhan.com/v1/timings/[date]`
 
-This function retrieves details about
-the Hadith book.
+Please note that you need an internet
+connection to access the API.
 
--  `options.language` (optional): Filter
-   book details by language.
--  `options.limit` (optional): Limit the
-   number of book details returned.
+## License
 
-Returns: An array containing details
-about the Hadith book.
+This function is provided under [your
+project's license].
 
-#### `randomHadith(options)`
+## Credits
 
-This function retrieves random Hadiths.
-
--  `options.language` (optional): Filter
-   random Hadiths by language.
--  `options.limit` (optional): Limit the
-   number of random Hadiths returned.
-
-Returns: An array of random Hadiths.
+This function was developed by
+MosqueICU. If you have any questions or
+need support, please contact us on
+https://discord.gg/WtKVyeeDrZ or visit
+our website at https://mosque.icu.
 
 ## License
 
 This package is released under the
-[LICENSE](LICENSE) license.
+[MIT](OPENSOURCE) license.
 
 ```
 
-You can include additional sections or information as needed, and don't forget to replace `[LICENSE](LICENSE)` with a link to the actual license file if you have one.
 ```
