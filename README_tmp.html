@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/hossamsulleman/Documents/GitHub/islamic_prayer_times/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///Users/hossamsulleman/Documents/GitHub/islamic_prayer_times/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <pre class="hljs"><code><div><span class="hljs-section"># islamic_prayer_times NPM</span>
+
+The islamic prayer times NPM package
+simplifies access to Islamic prayer
+times data for developers. This package
+extends the functionality of the Prayer
+Times API repository to provide an
+easy-to-use interface for retrieving
+prayer times information.
+
+<span class="hljs-section">## Installation</span>
+
+You can install the Sacred Texts NPM
+package via npm:
+
+<span class="hljs-code">```bash
+npm i @mosqueicu/islamic_prayer_times
+```</span>
+</div></code></pre>
+<h2 id="importing-the-package">importing the package</h2>
+<p>Import the package in your code:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> islamic_prayer_times = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@mosqueicu/islamic_prayer_times'</span>);
+</div></code></pre>
+<h3 id="functions">Functions</h3>
+<h1 id="getprayertimes-function"><code>getPrayerTimes</code> Function</h1>
+<h2 id="description">Description</h2>
+<p>The <code>getPrayerTimes</code> function is a<br>
+JavaScript function for fetching daily<br>
+prayer times based on various parameters<br>
+such as date, location coordinates,<br>
+calculation method, and other optional<br>
+settings. It utilizes the Aladhan API to<br>
+retrieve accurate prayer times.</p>
+<h2 id="usage">Usage</h2>
+<p>To use this function, you need to import<br>
+it into your JavaScript/TypeScript<br>
+project. Here's how you can import it:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { getPrayerTimes } <span class="hljs-keyword">from</span> <span class="hljs-string">'@mosqueicu/islamic_prayer_times'</span>;
+</div></code></pre>
+<h3 id="function-signature">Function Signature</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPrayerTimes</span>(<span class="hljs-params">options</span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">any</span>&gt;
+</span></div></code></pre>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>options</code> (required): An object of<br>
+type <code>PrayerTimeOptions</code> containing<br>
+the following properties:
+<ul>
+<li><code>date</code> (string, required): The<br>
+date for which you want to fetch<br>
+prayer times in the format<br>
+'DD-MM-YYYY'.</li>
+<li><code>latitude</code> (number, required): The<br>
+latitude of the location for which<br>
+you want to fetch prayer times.</li>
+<li><code>longitude</code> (number, required):<br>
+The longitude of the location for<br>
+which you want to fetch prayer<br>
+times.</li>
+<li><code>method</code> (number, optional): The<br>
+calculation method for prayer<br>
+times. Defaults to <code>null</code>.</li>
+<li><code>shafaq</code> (number, optional): The<br>
+shafaq method for prayer times.<br>
+Defaults to <code>null</code>.</li>
+<li><code>tune</code> (number, optional): The<br>
+tune method for prayer times.<br>
+Defaults to <code>null</code>.</li>
+<li><code>school</code> (number, optional): The<br>
+school of jurisprudence for prayer<br>
+times. Defaults to <code>null</code>.</li>
+<li><code>midnightMode</code> (number, optional):<br>
+The midnight mode for prayer<br>
+times. Defaults to <code>null</code>.</li>
+<li><code>timezonestring</code> (string,<br>
+optional): The time zone string<br>
+for the location. Defaults to<br>
+<code>null</code>.</li>
+<li><code>latitudeAdjustmentMethod</code><br>
+(string, optional): The latitude<br>
+adjustment method for prayer<br>
+times. Defaults to <code>null</code>.</li>
+<li><code>adjustment</code> (number, optional):<br>
+The adjustment for prayer times.<br>
+Defaults to <code>null</code>.</li>
+<li><code>iso8601</code> (boolean, optional):<br>
+Whether to return prayer times in<br>
+ISO8601 format. Defaults to<br>
+<code>null</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>A Promise that resolves to an object<br>
+containing the prayer times data or<br>
+rejects with an error if the request<br>
+fails.</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Here's an example of how to use the<br>
+<code>getPrayerTimes</code> function:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> options: PrayerTimeOptions = {
+	<span class="hljs-attr">date</span>: <span class="hljs-string">'17-07-2007'</span>,
+	<span class="hljs-attr">latitude</span>: <span class="hljs-number">51.508515</span>,
+	<span class="hljs-attr">longitude</span>: <span class="hljs-number">-0.1254872</span>,
+	<span class="hljs-attr">method</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">// Calculation method (optional)</span>
+};
+
+getPrayerTimes(options)
+	.then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+		<span class="hljs-built_in">console</span>.log(data); <span class="hljs-comment">// Print the retrieved prayer times data</span>
+	})
+	.catch(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+		<span class="hljs-built_in">console</span>.error(error); <span class="hljs-comment">// Handle any errors that occur during the request</span>
+	});
+</div></code></pre>
+<p>In this example, you specify the date<br>
+and location coordinates in the<br>
+<code>options</code> object and, if needed,<br>
+additional parameters for calculation<br>
+methods. The function then makes an API<br>
+request to fetch the daily prayer times<br>
+and returns the data.</p>
+<h2 id="error-handling">Error Handling</h2>
+<p>The function handles errors by rejecting<br>
+the Promise if there is a failure in<br>
+fetching the data. You can catch these<br>
+errors and handle them as needed.</p>
+<h3 id="error-object">Error Object</h3>
+<p>The error object thrown by the function<br>
+will include an error message indicating<br>
+the reason for the failure.</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">Error</span>: Failed to fetch prayer times: [error message]
+</div></code></pre>
+<h2 id="api-endpoint">API Endpoint</h2>
+<p>The function uses the Aladhan API to<br>
+retrieve prayer times data. The API<br>
+endpoint is constructed based on the<br>
+provided date.</p>
+<ul>
+<li>API Endpoint:<br>
+<code>http://api.aladhan.com/v1/timings/[date]</code></li>
+</ul>
+<p>Please note that you need an internet<br>
+connection to access the API.</p>
+<h2 id="license">License</h2>
+<p>This function is provided under [your<br>
+project's license].</p>
+<h2 id="credits">Credits</h2>
+<p>This function was developed by<br>
+MosqueICU. If you have any questions or<br>
+need support, please contact us on<br>
+https://discord.gg/WtKVyeeDrZ or visit<br>
+our website at https://mosque.icu.</p>
+<h2 id="license">License</h2>
+<p>This package is released under the<br>
+<a href="OPENSOURCE">MIT</a> license.</p>
+<pre class="hljs"><code><div>
+</div></code></pre>
+
+</body>
+
+</html>

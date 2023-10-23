@@ -29,7 +29,7 @@ const islamic_prayer_times = require('@mosqueicu/islamic_prayer_times');
 
 ### Functions
 
-# `getPrayerTimes` Function Documentation
+# `getPrayerTimes` Function
 
 ## Description
 
