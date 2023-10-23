@@ -1,11 +1,12 @@
 {
-	"name": "sacred_texts",
-	"version": "0.0.10",
+	"name": "@mosqueicu/islamic_prayer_times",
+	"version": "0.0.2",
 	"description": "npm package for islamic texts",
 	"scripts": {
 		"build": "tsc",
 		"start": "npm run build && node index.js",
-		"test": "exit 0"
+		"test": "exit 0",
+		"publish": "npm publish --access=public"
 	},
 	"author": "MosqueICU",
 	"license": "MIT",
@@ -15,5 +16,25 @@
 	"devDependencies": {
 		"@types/jest": "^29.5.5",
 		"jest": "^29.7.0"
-	}
+	},
+	"main": "index.js",
+	"directories": {
+		"test": "tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MICU-ADMIN/islamic_prayer_times.git"
+	},
+	"keywords": [
+		"islam",
+		"prayer",
+		"times",
+		"prayertimes",
+		"salah",
+		"jummuah"
+	],
+	"bugs": {
+		"url": "https://github.com/MICU-ADMIN/islamic_prayer_times/issues"
+	},
+	"homepage": "https://github.com/MICU-ADMIN/islamic_prayer_times#readme"
 }

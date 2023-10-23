@@ -1,5 +1,5 @@
 ````markdown
-# sacred_texts NPM
+# islamic_prayer_times NPM
 
 The Sacred Texts NPM package simplifies
 access to Hadiths and Quranic verses for
@@ -14,7 +14,7 @@ You can install the Sacred Texts NPM
 package via npm:
 
 ```bash
-npm i sacred_texts
+npm i islamic_prayer_times
 ```
 ````
 
@@ -23,7 +23,7 @@ npm i sacred_texts
 Import the package in your code:
 
 ```javascript
-const sacredTexts = require('sacred_texts');
+const sacredTexts = require('islamic_prayer_times');
 ```
 
 ### Functions
